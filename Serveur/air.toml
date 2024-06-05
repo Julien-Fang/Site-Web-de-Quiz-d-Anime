@@ -1,0 +1,14 @@
+# air.toml
+
+# Utilisez le mode `build` ou `run` pour spécifier la commande de démarrage de votre application Go
+[build]
+bin = "."
+
+[build.exec]
+args = ["go", "run", "."]
+
+# Port sur lequel `air` exécutera votre application
+server = "127.0.0.1:8080"
+
+# Exclure les fichiers ou répertoires spécifiés du suivi
+exclude_dir = ["assets", "templates"]
