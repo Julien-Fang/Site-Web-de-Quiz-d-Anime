@@ -15,45 +15,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-// incrementer le nombre de quiz joué par un utilisateur
-// func IncreaseNbQuiz(w http.ResponseWriter, r *http.Request, client *mongo.Client, idJoueur string, quiz string) ds.StatsUser {
-// 	collection := client.Database("Projet_PC3R").Collection("StatsUser")
-
-// 	filter := bson.M{"idjoueur": idJoueur}
-
-// 	var stats ds.StatsUser
-// 	// err := collection.FindOne(context.Background(), filter).Decode(&stats)
-// 	// if err != nil {
-// 	// 	fmt.Println(err)
-// 	// 	return
-// 	// }
-// 	collection.FindOne(context.Background(), filter).Decode(&stats)
-
-// 	// JE DOIS INCREMENTER ICI ET UPDATEONE
-// 	switch quiz {
-// 	case "QuizGeneral":
-// 		stats.NbQuizGeneral++
-// 	case "QuizSynopsis":
-// 		stats.NbQuizSynopsis++
-// 	case "QuizGenre":
-// 		stats.NbQuizGenre++
-// 	case "QuizImage":
-// 		stats.NbQuizPicture++
-// 	}
-
-// 	_, err := collection.UpdateOne(context.Background(), filter, stats)
-// 	if err != nil {
-// 		panic(err)
-// 	}
-
-// 	w.Header().Set("Content-Type", "application/json")
-// 	w.WriteHeader(http.StatusOK)
-// 	jsonData, _ := json.Marshal(stats)
-// 	w.Write(jsonData)
-
-// 	return stats
-// }
-
 // recuperer les statistiques d'un utilisateur
 func GetStats(w http.ResponseWriter, r *http.Request, client *mongo.Client, idJoueur string) ds.StatsUser {
 	collection := client.Database("Projet_PC3R").Collection("statsUser")
